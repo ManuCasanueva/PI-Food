@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
         const totalRecipes = await getAllInfo()
         if (name) {
             const filterRecipe = totalRecipes.filter((r) => r.name.toLowerCase().includes(name.toLowerCase()))
-            filterRecipe ? res.status(200).send(filterRecipe) : res.status(404).send("Recipe not Found")
+            filterRecipe.length ? res.status(200).send(filterRecipe) : res.status(404).send("Recipe not Found")
         } else {
             res.status(200).send(totalRecipes)
         }
@@ -32,7 +32,7 @@ router.get("/:id", async (req, res) => {
         const { id } = req.params;
         const totalInfo = await getAllInfo();
         if (id) {
-            const filteredId = totalInfo.filter((r) => r.id === parseInt(id))
+            const filteredId = totalInfo.find((r) => r.id == id)
             filteredId ? res.status(200).send(filteredId) : res.status(404).send("ID not found")
         } else {
             throw new Error("Doesn't work")

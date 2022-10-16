@@ -1,0 +1,24 @@
+.mainContainer{
+    background-color: aqua;
+    max-width: 500px;
+    max-height: 500px;
+    padding: 5px;
+    margin:10px;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px 0 gray;
+
+}
+
+.dietInfo{
+    font-size: 14px;
+}
+.title {
+    font-size: 20px;
+}
+
+.titleContainer {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+   
+}

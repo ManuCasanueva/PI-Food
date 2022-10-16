@@ -1,0 +1,18 @@
+.botonNext{
+    background-color: red;
+    border-radius: 5px;
+    box-shadow: 0 8px 32px 0 gray;
+}
+.botonIn {
+
+    box-shadow: 0 8px 32px 0 gray;
+}
+.botonIn button:hover{
+    background-color: rgba(0, 255, 255, 0.493);
+}
+
+.botonPrev {
+    background-color: rgb(0, 255, 170);
+    border-radius: 5px;
+    box-shadow: 0 8px 32px 0 gray;
+}

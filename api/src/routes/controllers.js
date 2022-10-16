@@ -10,18 +10,23 @@ const getApiInfo = async () => {
     // const apiUrl = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true`);
     const apiUrl = await axios.get("https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5")
     const apiInfo = await apiUrl.data.results.map((recipes) => {
+        // let aux = "";
+        // recipes.analyzedInstructions[0]?.steps.forEach((e) => {
+        //     aux += `Step ${e.number}: ${e.step}`;
+        // });
         return {
             id: recipes.id,
             name: recipes.title,
             summary: recipes.summary.replace(/<[^>]+>/g, ""),
             healthScore: recipes.healthScore,
-            steps: recipes.analyzedInstructions[0]?.steps.map((s) => {
+            steps: recipes.analyzedInstructions[0]?.steps.map((e) => {
                 return {
-                    number: s.number,
-                    step: s.step
-                }
+                    number: e.number,
+                    step: e.step,
+                };
             }),
-            diets: recipes.diets,
+
+            diets: `${recipes.diets},`,
             image: recipes.image,
             dishTypes: recipes.dishTypes
         }
@@ -32,6 +37,7 @@ const getApiInfo = async () => {
 
 const getDbInfo = async () => {
     const dbInfo = await Recipe.findAll({
+
         include: {
             model: Diets,
             attributes: ['name'],
@@ -40,7 +46,10 @@ const getDbInfo = async () => {
             }
         }
     });
-    return dbInfo;
+    var dato = JSON.parse(JSON.stringify(dbInfo, null, 2));
+    dato.forEach((el) => (el.diets = el.diets.map((el) => el.name)));
+
+    return dato;
 }
 
 const getAllInfo = async () => {
@@ -81,14 +90,16 @@ const postRecipe = async (objRecipe) => {
 
 
     try {
-        const { name, summary, healthScore, steps, image, dishesType, diets } = objRecipe;
+        const { name, summary, healthScore, steps, image, dishTypes, diets } = objRecipe;
+        // if (!name || !summary) throw new Error("Data Missing")
+        // if (healthScore < 0 || healthScore > 100) throw new Error("HealtScore need to be a number between 0 and 100")
         const recipe = {
             name,
             summary,
             healthScore,
             steps,
             image,
-            dishesType,
+            dishTypes,
         }
 
         const dietInfo = await Diets.findAll({

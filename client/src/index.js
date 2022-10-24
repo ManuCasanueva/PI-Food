@@ -14,13 +14,13 @@ const { BACK_END_LOCAL } = process.env;
 axios.defaults.baseURL = process.env.BACK_END_DEPLOY || 'http://localhost:3001';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>,
-  </React.StrictMode>,
+
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
+
   document.getElementById('root')
 );
 

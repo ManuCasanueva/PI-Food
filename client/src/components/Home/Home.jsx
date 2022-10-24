@@ -1,20 +1,23 @@
 import React from "react"
 import Recipes from "../Recipes/Recipes"
-import NavBar from "../NavBar/NavBar"
-import Opciones from "../Opciones/Opciones"
-import { useSelector } from "react-redux"
+import Filters from "../Filters/Filters"
+import { useSelector, useDispatch } from "react-redux"
 import { useState, useEffect } from "react"
 import Paginado from "../Paginado/Paginado"
-import SearchBar from "../SearchBar/SearchBar"
+import { getAllDiets, getRecipes } from "../../redux/actions"
+import style from "../Home/Home.module.css"
+import NavBar from "../NavBar/NavBar"
 
 export default function Home() {
+    const dispatch = useDispatch()
     const allRecipes = useSelector((state) => state.recipes)
+    const loading = useSelector((state) => state.loading)
     const [currentPage, setCurrentPage] = useState(1);
     const [recipesPerPage, setRecipesPerPage] = useState(9);
     const indexLast = currentPage * recipesPerPage;
     const indexFirst = indexLast - recipesPerPage;
-    const currentRecipes = allRecipes.slice(indexFirst, indexLast);
-    const numLength = Math.ceil(allRecipes.length / recipesPerPage)
+    const currentRecipes = allRecipes?.slice(indexFirst, indexLast);
+    const numLength = Math.ceil(allRecipes?.length / recipesPerPage)
 
 
     const handlePage = (num) => setCurrentPage(num)
@@ -30,39 +33,63 @@ export default function Home() {
         }
     }
 
+
     useEffect(() => {
-        if (currentPage === 1)
-            setRecipesPerPage(9)
-    }, [currentPage])
+        dispatch(getAllDiets())
+
+    }, [dispatch])
+
+
 
 
 
 
 
     return (
-        <div>
-            <SearchBar />
-            <div>
-                <Opciones />
+        <>
+            <div className={style.mainContainer}>
+                {/* {loading ? null : (
+                    // <div className={style.searchBar}>
+                    //     <SearchBar
+                    //         setCurrentPage={setCurrentPage}
+                    //     />
+                    //     </div>
+                    // )} */}
+                <div>
+                    <NavBar
+                        setCurrentPage={setCurrentPage}
+
+                    />
+                </div>
+
+                <div>
+                    <Filters />
+                </div>
+
+                {loading ? null : (
+                    <div className={style.paginado}>
+                        <Paginado
+                            recipesPerPage={recipesPerPage}
+                            allRecipes={allRecipes?.length}
+                            handlePage={handlePage}
+                            currentPage={handlePage}
+                            nextP={handleNext}
+                            prevP={handlePrev}
+                        />
+                    </div>
+                )}
+
+
+                <div>
+
+                    <Recipes
+                        currentRecipes={currentRecipes}
+                    />
+                </div>
+
             </div>
-            <div>
-                <Paginado
-                    recipesPerPage={recipesPerPage}
-                    allRecipes={allRecipes.length}
-                    currentPage={handlePage}
-                    nextP={handleNext}
-                    prevP={handlePrev}
-                />
-            </div>
 
-
-            <h1>
-                <Recipes
-                    currentRecipes={currentRecipes}
-                />
-            </h1>
-
-        </div>
+        </>
     )
 
 } 

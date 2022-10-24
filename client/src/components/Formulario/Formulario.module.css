@@ -1,0 +1,245 @@
+
+
+
+
+/******************* LO MIO ****************************/
+.divForm {
+   position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 85px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.mainContainer {
+   display: flex;
+   position: absolute;
+   width: 30%;
+   height: 78%;
+   flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.428);
+    box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.291);
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(2, 0, 36, 0.761) 0%, rgba(3, 3, 141, 0.704) 47%, rgba(3, 164, 196, 0.567) 100%);
+    
+
+}
+
+.danger{
+   color: rgb(0, 0, 0); 
+   padding: 4px;
+   font-family:cursive;
+   background: rgba(155, 154, 154, 0.797);
+   border-radius: 10px;
+   margin-top: 3px;
+   box-shadow: 0 4px 10px 0 rgba(87, 87, 87, 0.604);
+}
+
+.title {
+   color: rgb(0, 191, 255);
+    font-family: cursive;
+    margin-top: 5px;
+    font-size: 30px;
+}
+
+.label {
+   color: rgb(0, 191, 255);
+    font-family: cursive; 
+    margin-right: 5px; 
+    margin-left: 5px;
+}
+
+.nameInput {
+   border-radius: 10px;
+   padding: 5px;
+   margin-bottom: 10px;
+   background-color: rgba(0, 255, 255, 0.686);
+}
+
+
+.summaryInput {
+   border-radius: 10px;
+   padding: 5px;
+   margin-bottom: 10px;
+   background-color: rgba(0, 255, 255, 0.686);
+}
+
+
+.healthScoreInput {
+   border-radius: 10px;
+   padding: 5px;
+   margin-bottom: 10px;
+   background-color: rgba(0, 255, 255, 0.686);
+}
+
+
+.imageInput {
+   border-radius: 10px;
+   padding: 5px;
+   margin-bottom: 10px;
+   background-color: rgba(0, 255, 255, 0.686);
+}
+.steps {
+   display: flex;
+}
+.steps1 {
+   color: rgb(0, 191, 255);
+   font-family: cursive;
+   margin-right: 5px;
+}
+
+.stepsInput {
+   border-radius: 10px;
+   padding: 1px;
+   margin-bottom: 10px;
+   background-color: rgba(0, 255, 255, 0.686);
+}
+
+
+.dishTypesInput {
+   border-radius: 5px 5px 0px 0px;
+    background: rgba(0, 255, 255, 0.686);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 18.5px );
+    -webkit-backdrop-filter: blur( 18.5px );
+    padding: 2px;
+    font-family: cursive;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+.dietsInput {
+   border-radius: 5px 5px 0px 0px;
+    background: rgba(0, 255, 255, 0.686);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 18.5px );
+    -webkit-backdrop-filter: blur( 18.5px );
+    padding: 2px;
+    font-family: cursive;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* .button{
+   padding: 5px;
+   border-radius: 10px;
+   background-color: rgb(103, 102, 102);
+   color: white;
+   font-family: cursive;
+ }
+ .button:hover{
+   transition: 0.8s;
+   background-color: rgb(38, 230, 230);
+   color: black;
+   transform: scale(1.05, 1.05);
+  
+ } */
+
+ @import url(https://fonts.googleapis.com/css?family=Raleway:300);
+ .button {
+	 position: relative;
+	 left: 50%;
+	 top: 50%;
+	 transform: translateX(-50%) translateY(-50%);
+}
+.divButton {
+   display: flex;
+	 background: #111;
+}
+ .button {
+	 background: #333;
+	 color: #ccc;
+	 width: 150px;
+	 height: 50px;
+	 border: 0;
+	 font-size: 18px;
+	 border-radius: 4px;
+	 font-family: cursive;
+	 transition: 0.6s;
+	 overflow: hidden;
+}
+ .button:focus {
+	 outline: 0;
+}
+ .button:before {
+	 content: '';
+	 display: block;
+	 position: absolute;
+	 background: rgba(255, 255, 255, 0.5);
+	 width: 60px;
+	 height: 100%;
+	 left: 0;
+	 top: 0;
+	 opacity: 0.5;
+	 filter: blur(30px);
+	 transform: translateX(-100px) skewX(-15deg);
+}
+ .button:after {
+	 content: '';
+	 display: block;
+	 position: absolute;
+	 background: rgba(255, 255, 255, 0.2);
+	 width: 30px;
+	 height: 100%;
+	 left: 30px;
+	 top: 0;
+	 opacity: 0;
+	 filter: blur(5px);
+	 transform: translateX(-100px) skewX(-15deg);
+}
+ .button:hover {
+	 background: rgba(0, 255, 255, 0.553);;
+    color: black;
+	 cursor: pointer;
+}
+ .button:hover:before {
+	 transform: translateX(300px) skewX(-15deg);
+	 opacity: 0.6;
+	 transition: 0.7s;
+}
+ .button:hover:after {
+	 transform: translateX(300px) skewX(-15deg);
+	 opacity: 1;
+	 transition: 0.7s;
+}
+ .divDishes {
+   
+   border-radius: 10px;
+   background-color: rgba(6, 130, 197, 0.648);
+   height: 25px;
+   width: 200px;   
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 10px;
+   padding: 5px;
+   
+  
+ }
+
+ .buttonDelete {
+   background: none;
+   border: none;
+   border-radius: 10px 10px 10px 10px;
+ 
+   
+ }
+
+ .buttonDelete:hover {
+   transition: 0.8s;
+   background-color: rgba(95, 95, 95, 0.896);
+   box-shadow: 0 8px 32px 0 rgba(0.37, 0.37, 0.37, 0.37);
+ }
+ .p{
+   margin-left: 10px;
+ }
+
+::placeholder {
+   color: black;
+}
+

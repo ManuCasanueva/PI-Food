@@ -1,16 +1,16 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux"
-import { Link } from "react-router-dom";
 import { getRecipesByName } from "../../redux/actions";
-import styles from "./SearchBar.module.css"
+import style from "./SearchBar.module.css"
 
-export default function SearchBar() {
+export default function SearchBar({ setCurrentPage }) {
 
     const [input, setInput] = useState("")
     const dispatch = useDispatch()
 
     const inputHandlerChange = (evento) => {
+
         evento.preventDefault()
         setInput(evento.target.value)
     }
@@ -18,6 +18,7 @@ export default function SearchBar() {
     const submitHandlerChanger = (evento) => {
         evento.preventDefault()
         dispatch(getRecipesByName(input))
+        setCurrentPage(1)
 
     }
 
@@ -25,9 +26,9 @@ export default function SearchBar() {
     return (
         <div >
 
-            <input type="text" placeholder="Find your Recipe" onChange={inputHandlerChange} />
+            <input className={style.barra} type="text" placeholder="Find your Recipe..." onChange={inputHandlerChange} />
 
-            <button type="submit" onClick={submitHandlerChanger} > Search </button>
+            <button className={style.search} type="submit" onClick={submitHandlerChanger} > Search </button>
 
 
         </div>

@@ -3,9 +3,13 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+    /* background: linear-gradient(to top, #002fffae, #000000),url("https://wallpaper.dog/large/10921241.jpg"); */
+    background-image:url("https://www.xmple.com/wallpaper/black-blue-gradient-linear-3240x2160-c2-000000-0000cd-a-105-f-14.svg");
+    background-repeat: no-repeat;
+
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

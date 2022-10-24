@@ -1,24 +1,168 @@
+.form {
+    background-color: white;
+}
+
 .mainContainer{
-    background-color: aqua;
-    max-width: 500px;
-    max-height: 500px;
+    background-color: rgba(108, 162, 210, 0.541);
+    width: 450px;
+    height: 450px;
     padding: 5px;
     margin:10px;
     border-radius: 10px;
-    box-shadow: 0 8px 32px 0 gray;
+    box-shadow: 0 8px 10px 0 rgb(47, 47, 47);
+    transition: 0.3s;
+    display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+    
+}
 
+.mainContainer:hover {
+    transition: 0.3s;
+    transform: scale(1.03, 1.03);
 }
 
 .dietInfo{
-    font-size: 14px;
+    font-size: 16px;
+    font-family: cursive;
+    border: 1px solid black;    
+    background: rgba( 254, 255, 255, 0.2 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5px );
+    -webkit-backdrop-filter: blur( 5px );   
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    margin-top: 10px;
 }
 .title {
-    font-size: 20px;
+    font-size: 18px;
+    font-family: cursive;
+    color: black;
+   border: 1px inset rgba(115, 162, 173, 0.73);
+   padding: 5px;
+   background: rgba(101, 181, 223, 0.73);
+   box-shadow: 0 4px 10px 0 rgba(0.37, 0.37, 0.37, 0.37);
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 8.5px );
+    border-radius: 10px;
+    width: fit-content;  
+    
 }
+
+.title:hover{
+    transition: 0.8s;
+    transform: scale(1.02, 1.02);
+    
+}
+.title::before {  
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    border-radius: 10px;
+  }
+  
+  .title:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    border-radius: 10px;
+  }
+  
+  .title::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    border-radius: 10px;
+    inset: 0 0 0 0;
+    background: rgb(5, 170, 252);
+    z-index: -1;
+    transition: transform .3s ease;
+  }
+  
+  .title {
+    position: relative;
+    font-size: 18px;
+  }
+  
+  
+  .titleContainer {
+    border-radius: 10px;
+    margin: 0;
+    box-sizing: border-box;
+    display: grid;
+    place-content: center;
+    font-family: system-ui, sans-serif;
+  }
+  
+  @media (orientation: landscape) {
+    .titleContainer {
+      grid-auto-flow: column;
+    }
+  }
 
 .titleContainer {
     display: flex;
     align-content: center;
     flex-direction: column;
-   
+    
 }
+.link{    
+    text-decoration: none;
+    font-style: italic;    
+}
+.link link:hover{
+    text-shadow:0 8px 32px 0 rgb(31, 38, 135, 0.37 );
+}
+
+.imageRecipe {
+    
+        width: 400px;
+        height: 240px;
+        border-radius: 20px ;
+        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+        margin-bottom: 10px;
+      
+}
+.diets {
+    border: 1px solid black;
+    border-radius: 10px;
+
+}
+.p {
+    display: inline-block;
+    margin: 0.05rem 0.2rem 0.05rem 0.2rem;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 15px;
+    padding: 0.1rem 0.4rem;
+    margin-left: 1px;
+    border-radius: 15px;
+    background-color: rgba(91, 169, 208, 0.8);
+    width: fit-content;
+  }
+
+  .healthScore {
+    font-size: 20px;
+    font-family: cursive;
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+  }
+  .healthScoretitle {
+    font-size: 20px;
+    font-family: cursive;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+  .botonDelete{
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    background: none;
+    
+  }
+
+  .botonDelete:hover {
+    background-color: gray;
+    color: red;
+    transition: 0.8s;
+  }

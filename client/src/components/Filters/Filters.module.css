@@ -1,0 +1,60 @@
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    align-items: center;
+    margin: 10px;
+    column-gap: 10px;
+}
+
+.alphabetic {
+    border-radius: 5px 5px 0px 0px;
+    background: rgba(55, 176, 241, 0.657);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 18.5px );
+    -webkit-backdrop-filter: blur( 18.5px );
+    padding: 4px;
+    font-family: cursive;
+
+}
+
+.filterDiet {
+    border-radius: 5px 5px 0px 0px;
+    background: rgba(55, 176, 241, 0.657);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 18.5px );
+    -webkit-backdrop-filter: blur( 18.5px );
+    padding: 4px;
+    font-family: cursive;
+}
+.healthScore {
+    border-radius: 5px 5px 0px 0px;
+    background: rgba(55, 176, 241, 0.657);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 18.5px );
+    -webkit-backdrop-filter: blur( 18.5px );
+    padding: 4px;
+    font-family: cursive;
+}
+.zA{
+    border-radius: 0px 10px 10px 0px
+}
+
+.button{
+    padding: 6px;
+    border-radius: 10px;
+    background-color: rgb(103, 102, 102);
+    color: white;
+    font-family: cursive;
+    padding: 6.5px;
+    margin-right: 10px;
+  }
+  .button:hover{
+    transition: 1s;
+    background-color: rgba(255, 255, 255, 0.769);
+    color: black;
+    text-decoration: underline;
+  }

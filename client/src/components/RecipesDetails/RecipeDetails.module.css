@@ -1,0 +1,121 @@
+.mainContainer {
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 98%;
+    height: 99%;
+    margin-left: 20px;
+    margin-top: 20px;
+    /* background: rgba( 254, 255, 255, 0.2 ); */
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5px );
+    -webkit-backdrop-filter: blur( 5px );   
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    background: linear-gradient(180deg, rgba(2, 0, 36, 0.761) 0%, rgba(3, 3, 141, 0.704) 47%, rgba(3, 164, 196, 0.567) 100%);
+}
+
+
+.name {
+    color: white;
+    font-family: cursive;
+}
+.image {
+    border-radius: 20px ;
+        box-shadow: 0 8px 32px 0 rgb(11, 11, 11);
+        margin-bottom: 10px;
+}
+.summary {
+    color: rgb(0, 191, 255);
+    font-family: cursive;
+    font-size: 20px;
+}
+
+.summaryDetail {
+    display: flex;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: cursive;
+    color: white;
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.healthScore {
+    color: rgb(0, 191, 255);
+    font-family: cursive;
+    font-size: 20px;
+}
+.healthScoreNum {
+    color: white;
+    font-family: cursive;
+    margin-top: 1px;
+}
+.steps {
+    color: rgb(255, 255, 255);
+    font-family: cursive;    
+}
+.stepsContainer {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: cursive;
+    color: white;
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.diets{
+    color: rgb(0, 191, 255);
+    font-family: cursive;
+    margin-top: 5px;
+    font-size: 20px;
+}
+.dietsNames {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 1px;
+    font-family: cursive;
+    color: white;
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.dishType {
+    color: rgb(0, 191, 255);
+    font-family: cursive;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.dishTypeNames {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 3px;
+    margin-top: 5px;
+    font-family: cursive;
+    color: white;
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}

@@ -26,7 +26,7 @@ const getApiInfo = async () => {
                 };
             }),
 
-            diets: `${recipes.diets},`,
+            diets: `${recipes.diets}.`,
             image: recipes.image,
             dishTypes: recipes.dishTypes
         }
@@ -87,12 +87,8 @@ const putDietInfo = async () => {
 }
 
 const postRecipe = async (objRecipe) => {
-
-
     try {
         const { name, summary, healthScore, steps, image, dishTypes, diets } = objRecipe;
-        // if (!name || !summary) throw new Error("Data Missing")
-        // if (healthScore < 0 || healthScore > 100) throw new Error("HealtScore need to be a number between 0 and 100")
         const recipe = {
             name,
             summary,

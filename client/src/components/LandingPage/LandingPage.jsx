@@ -1,22 +1,26 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
+import style from "../LandingPage/LandingPage.module.css"
 
 
-export default function LandingPage () {
+export default function LandingPage() {
 
     return (
-        <div>
-            <h1>Bienvenido a mi pagina de Comida</h1>
-            <Link to = "/home" >
-                <button>
-                    Ingresar
-                </button>
-            </Link>
+        <div className={style.mainContainer}>
+            <div className={style.container} >
 
+                <h1 className={style.titulo} >Welcome to my Food app</h1>
+                <Link to="/home" >
 
+                    <button className={style.boton} >
+                        HOME
+                    </button>
+                </Link>
+            </div>
         </div>
-    )
-        
 
-    
+    )
+
+
+
 }

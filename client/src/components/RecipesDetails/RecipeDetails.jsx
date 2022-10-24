@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom"
 import Loading from "../Loading/Loading";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getRecipesDetail } from "../../redux/actions";
+import style from "../RecipesDetails/RecipeDetails.module.css"
+import NavBar from "../NavBar/NavBar";
+// import NotFound from "../NotFound/NotFound";
 
 
 
@@ -23,32 +25,64 @@ export default function RecipeDetail(props) {
 
     return (
         <div>
-
-            {
+            <NavBar />
+            {loading ?
+                <Loading /> :
                 recipeDetail ?
-                    <div>
-                        <img src={recipeDetail.image} alt="imagen" />
-                        <p>Name: {recipeDetail.name} </p>
-                        <p>Summary: {recipeDetail.summary}</p>
-                        <p>HealthScore: {recipeDetail.healthScore}</p>
 
-                        {
-                            <>Steps: {recipeDetail.steps?.map((e) => (
+                    <div className={style.mainContainer}>
+                        <p className={style.name} >{recipeDetail.name} </p>
+                        <img className={style.image} src={recipeDetail.image} alt="imagen" />
+                        <span className={style.summary} >
+                            Summary:
+                        </span>
+                        <p className={style.summaryDetail} >
+                            {recipeDetail.summary}
+                        </p>
+                        <span className={style.healthScore}>
+                            HealthScore
+                        </span>
+                        <p className={style.healthScoreNum} > {recipeDetail.healthScore}/100</p>
+
+                        {recipeDetail.createdInDb
+
+                            ? <div className={style.stepsContainer} > <>Steps: {recipeDetail.steps?.map((e) => (
                                 <div>
-                                    <div>  Step {e.number}: {e.step} </div>
-                                    <br></br>
+                                    <div className={style.steps}> {e.step} </div>
+
                                 </div>
-                            ))}<br></br></>
+                            ))}</>
+                            </div>
+                            :
+                            <div className={style.stepsContainer}>
+                                <span>
+
+                                </span>
+                                <>Steps: {recipeDetail.steps?.map((e) => (
+                                    <div  >
+                                        <div className={style.steps} >  Step {e.number}: {e.step} </div>
+
+                                    </div>
+                                ))}</>
+                            </div>
                         }
 
-                        <p>Diets: {recipeDetail.diets} </p>
-                        <p>DishTypes: {recipeDetail.dishTypes}</p>
+                        <span className={style.diets}>
+                            Diets:
+                        </span>
+                        <p className={style.dietsNames} > {recipeDetail.diets} </p>
+
+                        <span className={style.dishType} >
+                            DishTypes:
+                        </span>
+                        <p className={style.dishTypeNames} > {recipeDetail.dishTypes}</p>
                     </div> : <Loading />
 
 
 
 
             }
+
         </div>
 
     )

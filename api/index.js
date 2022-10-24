@@ -19,7 +19,7 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-const { Diets } = require("./src/db.js")
+
 const { putDietInfo } = require("../api/src/routes/controllers.js")
 const { PORT } = process.env
 

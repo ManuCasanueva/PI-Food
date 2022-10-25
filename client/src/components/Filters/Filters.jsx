@@ -51,10 +51,10 @@ export default function Filters({ currentPage }) {
               <option value="Z-A">Z-A</option>
             </select>
           </div>
-          <div>
+          <div className={style.select} >
             <select className={style.healthScore} onChange={handlerOrderHs}>
               <option disabled selected >Health Score:</option>
-              <option value="highest">Max ScoreHealth</option>
+              <option className={style.option} value="highest">Max ScoreHealth</option>
               <option value="lowest">Min ScoreHealth</option>
             </select>
           </div>

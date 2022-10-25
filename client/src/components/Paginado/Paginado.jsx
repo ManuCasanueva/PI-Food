@@ -4,18 +4,15 @@ import style from "../Paginado/Paginado.module.css"
 
 
 
-export default function Paginado({ currentPage, handlePage, nextP, prevP, allRecipes, recipesPerPage }) {
+export default function Paginado({ activated, paginadoActivated, currentPage, handlePage, nextP, prevP, allRecipes, recipesPerPage }) {
 
-  const [activated, setActivated] = useState({
-    1: true
-  })
+
 
   const handlerClick = (event, number) => {
     const clicked = event.target.name;
+    paginadoActivated(clicked)
     handlePage(number);
-    setActivated({
-      [clicked]: true,
-    });
+
   };
 
   const pageNumbers = [];
@@ -27,7 +24,7 @@ export default function Paginado({ currentPage, handlePage, nextP, prevP, allRec
 
   return (
     <ul>
-      {/* <> <button className={style.botonPrev} onClick={() => prevP()} >Previous</button> </> */}
+      <> <button className={style.botonPrev} onClick={() => prevP()} >Previous</button> </>
       {
         pageNumbers?.map(n => {
           return (
@@ -39,7 +36,7 @@ export default function Paginado({ currentPage, handlePage, nextP, prevP, allRec
           )
         })
       }
-      {/* <> <button className={style.botonNext} onClick={() => nextP()} >Next</button> </> */}
+      <> <button className={style.botonNext} onClick={() => nextP()} >Next</button> </>
     </ul>
   )
 }

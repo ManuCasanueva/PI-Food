@@ -21,7 +21,7 @@ export const loading = () => {
 export const getRecipes = () => {
     return async function (dispatch) {
         dispatch(loading())
-        const allRecipes = await axios.get("/recipes")
+        const allRecipes = await axios.get("http://localhost:3001/recipes")
         return dispatch(
             { type: GET_ALL_RECIPES, payload: allRecipes.data })
     }
@@ -33,7 +33,7 @@ export const getRecipesDetail = (id) => {
 
         try {
             const recipeDetail = await axios.get(
-                `/recipes/${id}`
+                `http://localhost:3001/recipes/${id}`
             );
             return dispatch({
                 type: GET_RECIPES_DETAIL,
@@ -47,7 +47,7 @@ export const getRecipesDetail = (id) => {
 export const getAllDiets = () => {
     return async function (dispatch) {
 
-        const allDiets = await axios.get("/diets")
+        const allDiets = await axios.get("http://localhost:3001/diets")
         return dispatch(
             { type: GET_ALL_DIETS, payload: allDiets.data })
     }
@@ -57,7 +57,7 @@ export const getAllDiets = () => {
 export const postRecipes = (payload) => {
     return async function () {
 
-        const postRecipe = await axios.post("/recipes", payload)
+        const postRecipe = await axios.post("http://localhost:3001/recipes", payload)
         return postRecipe
 
     }
@@ -67,7 +67,7 @@ export const getRecipesByName = (name) => {
     return async function (dispatch) {
         try {
             dispatch(loading())
-            const allRecipesByName = await axios.get(`/recipes?name=${name}`)
+            const allRecipesByName = await axios.get(`http://localhost:3001/recipes?name=${name}`)
             return dispatch(
                 { type: GET_RECIPES_BY_NAME, payload: allRecipesByName.data })
         } catch (error) {
@@ -102,10 +102,9 @@ export const orderHealthScore = (value) => {
 
 export const deleteRecipe = (id) => {
     return async function (dispatch) {
-
         try {
             const recipeDelete = await axios.delete(
-                `/recipes/${id}`
+                `http://localhost:3001/recipes/${id}`
             );
             return dispatch({
                 type: DELETE_RECIPE,

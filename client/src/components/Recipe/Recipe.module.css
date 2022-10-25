@@ -53,6 +53,8 @@
 .title:hover{
     transition: 0.8s;
     transform: scale(1.02, 1.02);
+    box-shadow: 0px 10px 24px 0px rgb(0, 0, 0);
+    
     
 }
 .title::before {  
@@ -75,7 +77,7 @@
     inset: 0 0 0 0;
     background: rgb(5, 170, 252);
     z-index: -1;
-    transition: transform .3s ease;
+    transition: transform 1s ease;
   }
   
   .title {
@@ -103,6 +105,7 @@
     display: flex;
     align-content: center;
     flex-direction: column;
+    border-radius: 10px;
     
 }
 .link{    

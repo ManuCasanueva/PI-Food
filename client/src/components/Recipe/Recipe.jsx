@@ -49,7 +49,6 @@ export default function Recipe({ id, name, image, diets, healthScore, createdInD
                     : <div>
                         <div className={style.mainContainer}>
                             <div className={style.titleContainer}>
-
                                 <Link className={style.link} to={`/home/recipes/${id}`}>
                                     <p className={style.title} >{name}</p>
                                 </Link>

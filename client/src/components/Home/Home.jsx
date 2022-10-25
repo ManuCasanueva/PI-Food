@@ -18,6 +18,10 @@ export default function Home() {
     const indexFirst = indexLast - recipesPerPage;
     const currentRecipes = allRecipes?.slice(indexFirst, indexLast);
     const numLength = Math.ceil(allRecipes?.length / recipesPerPage)
+    const [activated, setActivated] = useState({
+        1: true
+    })
+
 
 
     const handlePage = (num) => setCurrentPage(num)
@@ -25,19 +29,30 @@ export default function Home() {
     const handleNext = () => {
         if (numLength !== currentPage) {
             setCurrentPage(currentPage + 1)
+            paginadoActivated(currentPage + 1)
         }
     }
     const handlePrev = () => {
         if (currentPage !== 1) {
             setCurrentPage(currentPage - 1)
+            paginadoActivated(currentPage - 1)
         }
     }
+
+    const paginadoActivated = (value = 1) => {
+        //Hover pagina
+        const clicked = value;
+        setActivated({
+            [clicked]: true,
+        });
+    };
 
 
     useEffect(() => {
         dispatch(getAllDiets())
 
     }, [dispatch])
+
 
 
 
@@ -69,6 +84,8 @@ export default function Home() {
                 {loading ? null : (
                     <div className={style.paginado}>
                         <Paginado
+                            activated={activated}
+                            paginadoActivated={paginadoActivated}
                             recipesPerPage={recipesPerPage}
                             allRecipes={allRecipes?.length}
                             handlePage={handlePage}

@@ -34,16 +34,15 @@ const rootReducer = (state = initialState, action) => {
         case GET_RECIPES_DETAIL:
             return {
                 ...state,
-
                 recipeDetail: action.payload,
-
             }
+
         case GET_ALL_DIETS:
             return {
                 ...state,
                 diets: action.payload,
-
             }
+
         case POST_RECIPES:
             return {
                 ...state
@@ -58,14 +57,11 @@ const rootReducer = (state = initialState, action) => {
 
         case FILTER_DIETS:
             const allRecipes = state.allRecipes
-
             const filterDiets = allRecipes.filter(r => {
                 return r.diets?.includes(action.payload)
             })
-
             return {
                 ...state,
-
                 recipes: filterDiets
             }
 
@@ -112,6 +108,7 @@ const rootReducer = (state = initialState, action) => {
 
                 recipes: orderByHs
             }
+
         case LOADING:
             return {
                 loading: true

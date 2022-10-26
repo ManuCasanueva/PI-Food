@@ -3,7 +3,7 @@ import Recipe from "../Recipe/Recipe";
 import Loading from "../Loading/Loading"
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getAllDiets, getRecipes, recipesCreated } from "../../redux/actions";
+import { getAllDiets, getRecipes } from "../../redux/actions";
 import NotFound from "../NotFound/NotFound";
 import style from "./Recipes.module.css"
 
@@ -13,7 +13,6 @@ import style from "./Recipes.module.css"
 
 export default function Recipes({ currentRecipes }) {
     const dispatch = useDispatch()
-    // const allRecipes = useSelector(state => state.recipes)
     const loading = useSelector(state => state.loading)
 
 

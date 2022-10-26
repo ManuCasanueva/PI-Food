@@ -11,7 +11,7 @@ import {
     DELETE_RECIPE,
     RECIPE_CREATED,
     SET_PAGE,
-    FILTER_DISHTYPES
+
 } from "../actions/index.js"
 
 const initialState = {

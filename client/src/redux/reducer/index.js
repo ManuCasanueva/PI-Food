@@ -9,7 +9,9 @@ import {
     ALPHABETIC,
     ORDER_HEALTH_SCORE,
     DELETE_RECIPE,
-    RECIPE_CREATED
+    RECIPE_CREATED,
+    SET_PAGE,
+    FILTER_DISHTYPES
 } from "../actions/index.js"
 
 const initialState = {
@@ -18,6 +20,7 @@ const initialState = {
     diets: [],
     recipeDetail: [],
     loading: false,
+    currentPage: 1,
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -129,6 +132,16 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 recipes: recipesCreate
             }
+
+        case SET_PAGE:
+
+            return {
+                ...state,
+                currentPage: action.payload
+            }
+
+
+
 
         default:
             return { ...state }

@@ -1,38 +1,51 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { filterDiets, orderAlphabetic, orderHealthScore, getRecipes, recipesCreated } from '../../redux/actions'
+import { filterDiets, orderAlphabetic, orderHealthScore, getRecipes, recipesCreated, setCurrentPage } from '../../redux/actions'
+
 import style from "../Filters/Filters.module.css"
 
-export default function Filters({ currentPage }) {
+export default function Filters({ paginadoActivated }) {
 
   const dispatch = useDispatch()
   const loading = useSelector((state) => state.loading)
 
 
+
+
   const handlerDiet = (event) => {
     event.preventDefault()
     dispatch(filterDiets(event.target.value))
+    paginadoActivated()
+    dispatch(setCurrentPage(1))
   }
 
   const handlerAlphabetic = (event) => {
     event.preventDefault()
     dispatch(orderAlphabetic(event.target.value))
+    paginadoActivated()
+    dispatch(setCurrentPage(1))
   }
 
   const handlerOrderHs = (event) => {
     event.preventDefault()
     dispatch(orderHealthScore(event.target.value))
+    paginadoActivated()
+    dispatch(setCurrentPage(1))
   }
 
   const handleClear = (event) => {
     event.preventDefault()
     dispatch(getRecipes())
+    dispatch(setCurrentPage(1))
   }
 
   const recipeCreate = (event) => {
     event.preventDefault()
     dispatch(recipesCreated())
   }
+
+
+
 
 
 
@@ -46,14 +59,14 @@ export default function Filters({ currentPage }) {
             <button className={style.button} onClick={(e) => recipeCreate(e)}  >Recipes Created</button>
 
             <select className={style.alphabetic} onChange={handlerAlphabetic} >
-              <option disabled selected >Order by:</option>
+              <option value="none" >Order by:</option>
               <option value="A-Z">A-Z</option>
               <option value="Z-A">Z-A</option>
             </select>
           </div>
           <div className={style.select} >
             <select className={style.healthScore} onChange={handlerOrderHs}>
-              <option disabled selected >Health Score:</option>
+              <option value="none" >Health Score:</option>
               <option className={style.option} value="highest">Max ScoreHealth</option>
               <option value="lowest">Min ScoreHealth</option>
             </select>
@@ -76,6 +89,8 @@ export default function Filters({ currentPage }) {
               <option value="dairy free">Dairy Free</option>
             </select>
           </div>
+
+
           {loading ? null : (
             <div className={style.clearFilter}>
               <button className={style.button} onClick={(e) => handleClear(e)} >Clear Filters</button>

@@ -7,7 +7,7 @@ import { deleteRecipe } from "../../redux/actions";
 
 
 
-export default function Recipe({ id, name, image, diets, healthScore, createdInDb }) {
+export default function Recipe({ id, name, image, diets, healthScore, dishTypes, createdInDb }) {
 
     const dispatch = useDispatch()
 
@@ -16,7 +16,6 @@ export default function Recipe({ id, name, image, diets, healthScore, createdInD
     const handlerClick = (event) => {
         event.preventDefault()
         dispatch(deleteRecipe(id))
-
     }
 
 
@@ -44,6 +43,7 @@ export default function Recipe({ id, name, image, diets, healthScore, createdInD
                                 HealthScore:
                                 <span className={style.healthScore} > {healthScore}/100</span>
                             </div>
+
                         </div>
                     </div>
                     : <div>
@@ -63,8 +63,8 @@ export default function Recipe({ id, name, image, diets, healthScore, createdInD
                             <div className={style.healthScoretitle}>
                                 HealthScore:
                                 <span className={style.healthScore} > {healthScore}/100</span>
-
                             </div>
+
                         </div>
                     </div>
             }

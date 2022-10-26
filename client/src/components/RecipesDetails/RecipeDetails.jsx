@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { getRecipesDetail } from "../../redux/actions";
 import style from "../RecipesDetails/RecipeDetails.module.css"
 import NavBar from "../NavBar/NavBar";
-// import NotFound from "../NotFound/NotFound";
 
 
 
@@ -19,19 +18,23 @@ export default function RecipeDetail(props) {
     const recipeDetail = useSelector(state => state.recipeDetail)
     const loading = useSelector(state => state.loading)
 
+
     useEffect(() => {
         dispatch(getRecipesDetail(id))
     }, [dispatch, id])
 
     return (
         <div>
+
             <NavBar />
             {loading ?
                 <Loading /> :
                 recipeDetail ?
 
+
                     <div className={style.mainContainer}>
                         <p className={style.name} >{recipeDetail.name} </p>
+
                         <img className={style.image} src={recipeDetail.image} alt="imagen" />
                         <span className={style.summary} >
                             Summary:
@@ -39,6 +42,7 @@ export default function RecipeDetail(props) {
                         <p className={style.summaryDetail} >
                             {recipeDetail.summary}
                         </p>
+
                         <span className={style.healthScore}>
                             HealthScore
                         </span>
@@ -48,7 +52,7 @@ export default function RecipeDetail(props) {
 
                             ? <div className={style.stepsContainer} > <>Steps: {recipeDetail.steps?.map((e) => (
                                 <div>
-                                    <div className={style.steps}> {e.step} </div>
+                                    <div key={e} className={style.steps}> {e.step} </div>
 
                                 </div>
                             ))}</>
@@ -60,7 +64,7 @@ export default function RecipeDetail(props) {
                                 </span>
                                 <>Steps: {recipeDetail.steps?.map((e) => (
                                     <div  >
-                                        <div className={style.steps} >  Step {e.number}: {e.step} </div>
+                                        <div key={e} className={style.steps} >  Step {e.number}: {e.step} </div>
 
                                     </div>
                                 ))}</>

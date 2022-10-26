@@ -4,19 +4,19 @@ import SearchBar from "../SearchBar/SearchBar";
 import style from "../NavBar/NavBar.module.css"
 
 
-export default function NavBar({ setCurrentPage }) {
+export default function NavBar({ paginadoActivated }) {
     return (
         <div className={style.navContainer}>
             <Link to="/home" >
                 <button className={style.home} >Home</button>
             </Link>
-            {/* <div>
-                <SearchBar
-                    setCurrentPage={setCurrentPage}
-                />
-            </div> */}
+
+
+
             <Route
-                path={"/home"} component={() => <SearchBar setCurrentPage={setCurrentPage} />} />
+                exact path={"/home"} component={() => <SearchBar
+                    paginadoActivated={paginadoActivated}
+                />} />
 
 
             <Link to="/home/newrecipe" >

@@ -116,12 +116,6 @@ export default function Formulario() {
 
     const handlerDishType = (event) => {
 
-        // if (input[event.target.name].includes(event.target.value)) {
-        //     let newDishTypes = input[event.target.name]
-        //     newDishTypes = newDishTypes?.filter((e) => e !== e.target.value)
-        // }
-
-
         setError(validate({
             ...input,
             [event.target.name]: event.target.value

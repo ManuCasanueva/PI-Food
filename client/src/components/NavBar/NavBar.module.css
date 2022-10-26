@@ -22,7 +22,7 @@
 }
 .home:hover {
     background: rgb(38, 230, 230);
-    transition: 0.8s;
+    transition: 1s;
     color: black;
     border-radius: 0px 5px 5px 0px;
 }
@@ -45,4 +45,5 @@
     transition: 0.8s;
     color: black;
     border-radius: 5px 0px 0px 5px;
+    transition: 1s;
 }

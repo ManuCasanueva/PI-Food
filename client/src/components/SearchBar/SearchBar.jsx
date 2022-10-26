@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux"
-import { getRecipesByName } from "../../redux/actions";
+import { getRecipesByName, setCurrentPage } from "../../redux/actions";
 import style from "./SearchBar.module.css"
 
-export default function SearchBar({ setCurrentPage }) {
+export default function SearchBar({ paginadoActivated }) {
 
     const [input, setInput] = useState("")
     const dispatch = useDispatch()
+
 
     const inputHandlerChange = (evento) => {
 
@@ -18,7 +19,9 @@ export default function SearchBar({ setCurrentPage }) {
     const submitHandlerChanger = (evento) => {
         evento.preventDefault()
         dispatch(getRecipesByName(input))
-        setCurrentPage(1)
+        paginadoActivated()
+        dispatch(setCurrentPage(1))
+
 
     }
 

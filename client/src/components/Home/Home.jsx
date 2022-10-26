@@ -4,40 +4,25 @@ import Filters from "../Filters/Filters"
 import { useSelector, useDispatch } from "react-redux"
 import { useState, useEffect } from "react"
 import Paginado from "../Paginado/Paginado"
-import { getAllDiets, getRecipes } from "../../redux/actions"
+import { getAllDiets, getRecipes, setCurrentPage } from "../../redux/actions"
 import style from "../Home/Home.module.css"
 import NavBar from "../NavBar/NavBar"
 
 export default function Home() {
     const dispatch = useDispatch()
     const allRecipes = useSelector((state) => state.recipes)
+    const currentPage = useSelector((state) => state.currentPage)
+
     const loading = useSelector((state) => state.loading)
-    const [currentPage, setCurrentPage] = useState(1);
+    // const [currentPage, setCurrentPage] = useState(1);
     const [recipesPerPage, setRecipesPerPage] = useState(9);
     const indexLast = currentPage * recipesPerPage;
     const indexFirst = indexLast - recipesPerPage;
     const currentRecipes = allRecipes?.slice(indexFirst, indexLast);
     const numLength = Math.ceil(allRecipes?.length / recipesPerPage)
     const [activated, setActivated] = useState({
-        1: true
+        [currentPage]: true
     })
-
-
-
-    const handlePage = (num) => setCurrentPage(num)
-
-    const handleNext = () => {
-        if (numLength !== currentPage) {
-            setCurrentPage(currentPage + 1)
-            paginadoActivated(currentPage + 1)
-        }
-    }
-    const handlePrev = () => {
-        if (currentPage !== 1) {
-            setCurrentPage(currentPage - 1)
-            paginadoActivated(currentPage - 1)
-        }
-    }
 
     const paginadoActivated = (value = 1) => {
         //Hover pagina
@@ -50,35 +35,27 @@ export default function Home() {
 
     useEffect(() => {
         dispatch(getAllDiets())
-
+        dispatch(getRecipes())
+        dispatch(setCurrentPage(currentPage))
     }, [dispatch])
-
-
-
-
-
-
 
 
     return (
         <>
             <div className={style.mainContainer}>
-                {/* {loading ? null : (
-                    // <div className={style.searchBar}>
-                    //     <SearchBar
-                    //         setCurrentPage={setCurrentPage}
-                    //     />
-                    //     </div>
-                    // )} */}
                 <div>
                     <NavBar
                         setCurrentPage={setCurrentPage}
-
+                        paginadoActivated={paginadoActivated}
                     />
                 </div>
 
+
                 <div>
-                    <Filters />
+                    <Filters
+                        setCurrentPage={setCurrentPage}
+                        paginadoActivated={paginadoActivated}
+                    />
                 </div>
 
                 {loading ? null : (
@@ -86,12 +63,13 @@ export default function Home() {
                         <Paginado
                             activated={activated}
                             paginadoActivated={paginadoActivated}
+                            numLength={numLength}
+                            // setCurrentPage={setCurrentPage}
+                            // currentPage={currentPage}
                             recipesPerPage={recipesPerPage}
                             allRecipes={allRecipes?.length}
-                            handlePage={handlePage}
-                            currentPage={handlePage}
-                            nextP={handleNext}
-                            prevP={handlePrev}
+                        // handlePage={handlePage}
+
                         />
                     </div>
                 )}

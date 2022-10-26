@@ -1,15 +1,47 @@
-/* .botonNext{
-    background-color: red;
-    border-radius: 5px;
-    box-shadow: 0 8px 32px 0 rgb(63, 63, 63);
+.botonNext{
+  border-radius: 5px;
+  border: none;
+  background: rgba(55, 176, 241, 0.657);
+  color: hsl(0, 0%, 0%);
+  margin: 2px;
+  margin-block-end: 10px;
+  font-size: 17px;
+  display: inline;
+  align-items: flex-start;
+  justify-content: end;
+  cursor: pointer;
+}
+.botonNext:hover {
+  background-color: rgba(255, 255, 255, 0.531);
+  transition: 0.8s;
+  box-shadow: 0 8px 10px 0 rgba(144, 143, 143, 0.471);
+  transform: scale(1.05, 1.05);
 }
 
 
 .botonPrev {
-    background-color: rgb(0, 255, 170);
-    border-radius: 5px;
-    box-shadow: 0 8px 32px 0 rgb(63, 63, 63);
-} */
+  border-radius: 5px;
+  border: none;
+  background: rgba(55, 176, 241, 0.657);
+  color: hsl(0, 0%, 0%);
+  margin: 2px;
+  margin-block-end: 10px;
+  font-size: 17px;
+  display: inline;
+  align-items: flex-start;
+  justify-content: end;
+  cursor: pointer;
+  
+}
+.botonPrev:hover {
+  background-color: rgba(255, 255, 255, 0.531);
+  transition: 0.8s;
+  box-shadow: 0 8px 10px 0 rgba(144, 143, 143, 0.471);
+  transform: scale(1.05, 1.05);
+ 
+}
+
+
 .pagActual {
     border-radius: 5px;
     border: none;
@@ -22,6 +54,8 @@
     align-items: flex-start;
     justify-content: end;
     cursor: pointer;
+    box-shadow: 0 8px 10px 0 rgb(47, 47, 47);
+    transform: scale(1.15, 1.15);
   }
   
   .pagOther {

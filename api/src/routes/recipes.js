@@ -61,7 +61,6 @@ router.post("/", async (req, res) => {
 router.delete("/:id", async (req, res) => {
 
     try {
-
         const { id } = req.params;
         const deletedValue = await Recipe.findByPk(id)
         await Recipe.destroy({
@@ -74,8 +73,10 @@ router.delete("/:id", async (req, res) => {
     } catch (error) {
         res.status(404).send(error)
     }
-
 })
+
+
+
 
 module.exports = router;
 

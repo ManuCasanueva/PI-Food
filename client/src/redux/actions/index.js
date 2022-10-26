@@ -11,6 +11,9 @@ export const ALPHABETIC = "ALPHABETIC"
 export const ORDER_HEALTH_SCORE = "ORDER_HEALTH_SCORE"
 export const DELETE_RECIPE = "DELETE_RECIPE"
 export const RECIPE_CREATED = "RECIPE_CREATED"
+export const SET_PAGE = "SET_PAGE"
+export const FILTER_DISHTYPES = "FILTER_DISHTYPES"
+
 
 export const loading = () => {
     return {
@@ -121,5 +124,16 @@ export const recipesCreated = () => {
         type: RECIPE_CREATED,
     }
 }
+
+export const setCurrentPage = (data) => {
+    return (dispatch) => {
+        return dispatch({
+            type: SET_PAGE,
+            payload: data
+        })
+    }
+}
+
+
 
 
